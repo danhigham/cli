@@ -77,9 +77,6 @@ func HandleExitCoder(err error) {
 	}
 
 	if exitErr, ok := err.(ExitCoder); ok {
-		if err.Error() != "" {
-			fmt.Fprintln(ErrWriter, err)
-		}
 		OsExiter(exitErr.ExitCode())
 		return
 	}
